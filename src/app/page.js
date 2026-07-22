@@ -1,9 +1,11 @@
+import Navbar from "@/components/layout/Navbar";
+import Hero from "@/components/landing/Hero";
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-black flex items-center justify-center">
-      <h1 className="text-white text-7xl font-bold tracking-wider">
-        Triage
-      </h1>
+    <main className="bg-[#0B0F19]">
+      <Navbar />
+      <Hero />
     </main>
   );
 }
