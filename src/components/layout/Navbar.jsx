@@ -1,3 +1,4 @@
+import Link from "next/link";
 export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 z-50 w-full">
@@ -14,9 +15,22 @@ export default function Navbar() {
           <a href="#" className="transition hover:text-cyan-400">About</a>
         </nav>
 
-        <button className="rounded-xl bg-cyan-500 px-5 py-2 font-medium text-white transition-all duration-300 hover:bg-cyan-400 hover:shadow-lg hover:shadow-cyan-500/30">
-          Sign In
-        </button>
+        <div className="flex items-center gap-4">
+  <Link
+    href="/login"
+    className="text-slate-300 transition hover:text-cyan-400"
+  >
+    Log In
+  </Link>
+
+  <Link
+    href="/register"
+    className="rounded-xl bg-cyan-500 px-5 py-2 font-medium text-white transition-all duration-300 hover:bg-cyan-400 hover:shadow-lg hover:shadow-cyan-500/30"
+  >
+    Register
+  </Link>
+</div>
+  
 
       </div>
     </header>
