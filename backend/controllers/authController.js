@@ -1,4 +1,4 @@
-export const registerUser = (req, res) => {
+const registerUser = (req, res) => {
   console.log(req.body);
 
   res.status(201).json({
@@ -6,4 +6,8 @@ export const registerUser = (req, res) => {
     message: "User Registered Successfully",
     user: req.body,
   });
+};
+
+module.exports = {
+  registerUser,
 };
