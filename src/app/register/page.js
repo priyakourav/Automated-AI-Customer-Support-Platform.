@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { FiEye, FiEyeOff } from "react-icons/fi";
 
 export default function RegisterPage() {
   const [name, setName] = useState("");
@@ -9,7 +10,10 @@ export default function RegisterPage() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
 
-  const handleRegister = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
+
+  const handleRegister = async () => {
     if (!name || !email || !password || !confirmPassword) {
       alert("Please fill all fields");
       return;
@@ -20,13 +24,27 @@ export default function RegisterPage() {
       return;
     }
 
-    console.log("Creating Account...");
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+        }),
+      });
 
-    console.log({
-      name,
-      email,
-      password,
-    });
+      const data = await response.json();
+
+      alert(data.message);
+      console.log(data);
+    } catch (error) {
+      console.error(error);
+      alert("Something went wrong");
+    }
   };
 
   return (
@@ -45,10 +63,15 @@ export default function RegisterPage() {
           Join Triage and start managing customers smarter.
         </p>
 
-        <form className="mt-10 space-y-6">
+        <form
+          className="mt-10 space-y-6"
+          onSubmit={(e) => {
+            e.preventDefault();
+            handleRegister();
+          }}
+        >
 
           {/* Name */}
-
           <div>
             <label className="mb-2 block text-sm text-slate-300">
               Full Name
@@ -64,7 +87,6 @@ export default function RegisterPage() {
           </div>
 
           {/* Email */}
-
           <div>
             <label className="mb-2 block text-sm text-slate-300">
               Email Address
@@ -80,40 +102,68 @@ export default function RegisterPage() {
           </div>
 
           {/* Password */}
-
           <div>
             <label className="mb-2 block text-sm text-slate-300">
               Password
             </label>
 
-            <input
-              type="password"
-              placeholder="Create a password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
-              className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition focus:border-cyan-500"
-            />
+            <div className="relative">
+              <input
+                type={showPassword ? "text" : "password"}
+                placeholder="Create a password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 pr-12 text-white outline-none transition focus:border-cyan-500"
+              />
+
+              <button
+                type="button"
+                onClick={() => setShowPassword(!showPassword)}
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-cyan-400 transition"
+              >
+                {showPassword ? (
+                  <FiEyeOff size={20} />
+                ) : (
+                  <FiEye size={20} />
+                )}
+              </button>
+            </div>
           </div>
 
           {/* Confirm Password */}
-
           <div>
             <label className="mb-2 block text-sm text-slate-300">
               Confirm Password
             </label>
 
-            <input
-              type="password"
-              placeholder="Confirm your password"
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-              className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-white outline-none transition focus:border-cyan-500"
-            />
+            <div className="relative">
+              <input
+                type={showConfirmPassword ? "text" : "password"}
+                placeholder="Confirm your password"
+                value={confirmPassword}
+                onChange={(e) => setConfirmPassword(e.target.value)}
+                className="w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 pr-12 text-white outline-none transition focus:border-cyan-500"
+              />
+
+              <button
+                type="button"
+                onClick={() =>
+                  setShowConfirmPassword(!showConfirmPassword)
+                }
+                className="absolute right-4 top-1/2 -translate-y-1/2 text-white hover:text-cyan-400 transition"
+              >
+                {showConfirmPassword ? (
+                  <FiEyeOff size={20} />
+                ) : (
+                  <FiEye size={20} />
+                )}
+              </button>
+            </div>
           </div>
 
+          {/* Register Button */}
           <button
-            type="button"
-            onClick={handleRegister}
+            type="submit"
             className="w-full rounded-xl bg-cyan-500 py-3 font-semibold text-white transition hover:bg-cyan-400"
           >
             Create Account
@@ -130,8 +180,6 @@ export default function RegisterPage() {
           </p>
 
         </form>
-
-
       </div>
     </main>
   );
