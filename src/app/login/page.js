@@ -8,20 +8,43 @@ export default function LoginPage() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = () => {
-    if (!email || !password) {
-      alert("Please fill all fields");
+  const handleLogin = async () => {
+  if (!email || !password) {
+    alert("Please fill all fields");
+    return;
+  }
+
+  try {
+    const response = await fetch("http://localhost:5000/api/auth/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email,
+        password,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!data.success) {
+      alert(data.message);
       return;
     }
 
-    console.log("Logging in...");
+    localStorage.setItem("token", data.token);
+localStorage.setItem("user", JSON.stringify(data.user));
 
-    console.log({
-      email,
-      password,
-    });
-  };
+alert("Login Successful!");
 
+window.location.href = "/dashboard";
+
+  } catch (error) {
+    console.log(error);
+    alert("Something went wrong");
+  }
+};
   return (
     <main className="flex min-h-screen items-center justify-center bg-[#0B0F19] px-6">
       {/* Background Glow */}
