@@ -9,42 +9,47 @@ export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
 
   const handleLogin = async () => {
-  if (!email || !password) {
-    alert("Please fill all fields");
-    return;
-  }
-
-  try {
-    const response = await fetch("http://localhost:5000/api/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
-
-    const data = await response.json();
-
-    if (!data.success) {
-      alert(data.message);
+    if (!email || !password) {
+      alert("Please fill all fields");
       return;
     }
 
-    localStorage.setItem("token", data.token);
-localStorage.setItem("user", JSON.stringify(data.user));
+    try {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
 
-alert("Login Successful!");
+      const data = await response.json();
 
-window.location.href = "/dashboard";
+      if (!data.success) {
+        alert(data.message);
+        return;
+      }
 
-  } catch (error) {
-    console.log(error);
-    alert("Something went wrong");
-  }
-};
+      // Store JWT Token
+      localStorage.setItem("token", data.token);
+
+      // Store User
+      localStorage.setItem("user", JSON.stringify(data.user));
+
+      alert("Login Successful!");
+
+      // Redirect to Dashboard
+      window.location.href = "/dashboard";
+
+    } catch (error) {
+      console.log(error);
+      alert("Something went wrong");
+    }
+  };
+
   return (
     <main className="flex min-h-screen items-center justify-center bg-[#0B0F19] px-6">
       {/* Background Glow */}
@@ -102,11 +107,11 @@ window.location.href = "/dashboard";
                 onClick={() => setShowPassword(!showPassword)}
                 className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 transition hover:text-cyan-400"
               >
-               {showPassword ? (
-  <FiEye size={20} />
-) : (
-  <FiEyeOff size={20} />
-)}
+                {showPassword ? (
+                  <FiEye size={20} />
+                ) : (
+                  <FiEyeOff size={20} />
+                )}
               </button>
             </div>
           </div>
