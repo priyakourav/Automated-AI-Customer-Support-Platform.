@@ -3,6 +3,7 @@ const cors = require("cors");
 const mongoose = require("mongoose");
 require("dotenv").config();
 
+const chatRoutes = require("./routes/chatRoutes");
 const authRoutes = require("./routes/authRoutes");
 const ticketRoutes = require("./routes/ticketRoutes");
 
@@ -13,6 +14,7 @@ app.use(cors());
 app.use(express.json());
 
 // Routes
+app.use("/api/chat", chatRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/tickets", ticketRoutes);
 
