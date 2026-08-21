@@ -1,7 +1,11 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import { speakWithKokoro } from "@/lib/kokoro";
+import { useState, useEffect, useRef } from "react";
+
+import {
+  speakWithKokoro,
+  warmUpKokoro,
+} from "@/lib/kokoro";
 
 export default function ChatPage() {
   const [message, setMessage] = useState("");
@@ -11,12 +15,60 @@ export default function ChatPage() {
   const [isListening, setIsListening] = useState(false);
   const [speechSupported, setSpeechSupported] = useState(true);
 
-  // Voice output
   const [voiceMode, setVoiceMode] = useState(false);
   const [voiceLoading, setVoiceLoading] = useState(false);
 
-  // Current Kokoro audio player
   const [currentAudio, setCurrentAudio] = useState(null);
+  const messagesEndRef = useRef(null);
+
+  // --------------------------------------------------
+  // Load existing conversation when page opens
+  // --------------------------------------------------
+
+  useEffect(() => {
+    warmUpKokoro();
+    const loadConversation = async () => {
+      try {
+        const token = localStorage.getItem("token");
+
+        if (!token) {
+          window.location.href = "/login";
+          return;
+        }
+
+        const response = await fetch(
+          "http://localhost:5000/api/chat/history",
+          {
+            method: "GET",
+            headers: {
+              Authorization: token,
+            },
+          }
+        );
+
+        const data = await response.json();
+
+        if (!data.success) {
+          throw new Error(
+            data.message || "Failed to load conversation"
+          );
+        }
+
+        setMessages(data.messages || []);
+      } catch (error) {
+        console.error(
+          "Conversation history error:",
+          error
+        );
+      }
+    };
+
+    loadConversation();
+  }, []);
+
+  // --------------------------------------------------
+  // Speech support
+  // --------------------------------------------------
 
   useEffect(() => {
     if (typeof window === "undefined") return;
@@ -35,8 +87,14 @@ export default function ChatPage() {
     };
   }, [currentAudio]);
 
+  useEffect(() => {
+  messagesEndRef.current?.scrollIntoView({
+    behavior: "smooth",
+  });
+}, [messages, loading]);
+
   // --------------------------------------------------
-  // Clean AI response before sending it to voice
+  // Clean AI response before voice
   // --------------------------------------------------
 
   const cleanTextForSpeech = (text) => {
@@ -106,11 +164,11 @@ export default function ChatPage() {
     } catch (error) {
       console.error("Kokoro voice error:", error);
 
-      // Browser speech fallback
       try {
         window.speechSynthesis?.cancel();
 
-        const speech = new SpeechSynthesisUtterance(cleanSpeech);
+        const speech =
+          new SpeechSynthesisUtterance(cleanSpeech);
 
         speech.rate = 0.9;
         speech.pitch = 1;
@@ -200,7 +258,6 @@ export default function ChatPage() {
         aiMessage,
       ]);
 
-      // Speak only when Voice Mode is ON
       if (voiceMode) {
         await speakResponse(data.reply);
       }
@@ -382,7 +439,6 @@ export default function ChatPage() {
                   : "justify-start"
               }`}
             >
-
               <div
                 className={`group relative max-w-[80%] rounded-2xl px-5 py-3 ${
                   msg.role === "user"
@@ -390,12 +446,9 @@ export default function ChatPage() {
                     : "border border-slate-700 bg-slate-950 text-slate-200"
                 }`}
               >
-
                 <p className="whitespace-pre-wrap leading-relaxed">
                   {msg.content}
                 </p>
-
-                {/* REPLAY */}
 
                 {msg.role === "assistant" && (
                   <button
@@ -411,20 +464,18 @@ export default function ChatPage() {
                       : "🔊 Listen"}
                   </button>
                 )}
-
               </div>
             </div>
           ))}
 
           {loading && (
             <div className="flex justify-start">
-
               <div className="rounded-2xl border border-slate-700 bg-slate-950 px-5 py-3 text-slate-400">
                 Triage is thinking...
               </div>
-
             </div>
           )}
+          <div ref={messagesEndRef} />
 
         </div>
 
