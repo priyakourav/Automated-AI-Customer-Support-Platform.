@@ -188,12 +188,23 @@ export default function Dashboard() {
             </p>
           </div>
 
-          <button
-            onClick={handleLogout}
-            className="rounded-lg bg-red-500 px-5 py-2 font-semibold transition hover:bg-red-400"
-          >
-            Logout
-          </button>
+          <div className="flex gap-3">
+  <button
+    onClick={() => {
+      window.location.href = "/chat";
+    }}
+    className="rounded-lg bg-cyan-500 px-5 py-2 font-semibold transition hover:bg-cyan-400"
+  >
+    🤖 AI Support
+  </button>
+
+  <button
+    onClick={handleLogout}
+    className="rounded-lg bg-red-500 px-5 py-2 font-semibold transition hover:bg-red-400"
+  >
+    Logout
+  </button>
+</div>
         </div>
 
         {/* Stats */}
