@@ -5,21 +5,23 @@ export const workflow = [
     step: "01",
     title: "Receive Query",
     description:
-      "Customers contact your business through voice or chat, and Triage instantly captures every request.",
+      "Customers describe their issue through text or voice, and Triage captures the request for AI-powered support.",
     icon: FiMessageSquare,
   },
+
   {
     step: "02",
     title: "AI Understands",
     description:
-      "Our AI analyzes customer intent, retrieves relevant information, and prepares the best response.",
+      "Triage analyzes the customer's message and determines the best response based on the conversation.",
     icon: FiCpu,
   },
+
   {
     step: "03",
-    title: "Instant Resolution",
+    title: "Resolve or Escalate",
     description:
-      "Customers receive fast, accurate answers while your support team focuses on complex cases.",
+      "Customers get immediate assistance, while unresolved issues can be escalated into support tickets for further help.",
     icon: FiCheckCircle,
   },
 ];

@@ -1,22 +1,22 @@
 export const faqs = [
   {
-    question: "What is Triage?",
+    question: "What is Triage AI?",
     answer:
-      "Triage is an AI-powered customer support platform that automates customer conversations using voice and text.",
+      "Triage AI is an AI-powered customer support platform that helps customers resolve common issues through text and voice conversations.",
   },
   {
-    question: "Can I integrate it with my existing system?",
+    question: "Can I use voice support?",
     answer:
-      "Yes. Triage is designed to integrate with CRM systems, help desks, and business tools.",
+      "Yes. You can use the microphone to speak with Triage AI, and AI responses can also be played as voice.",
   },
   {
-    question: "Does it support voice calls?",
+    question: "What happens if the AI can't solve my issue?",
     answer:
-      "Yes. It supports both AI voice assistants and text-based customer support.",
+      "Triage AI can escalate the issue by creating a support ticket for the support team.",
   },
   {
-    question: "Is customer data secure?",
+    question: "Where can I view my support tickets?",
     answer:
-      "Absolutely. All customer interactions are encrypted and securely processed.",
+      "Created tickets can be viewed from the Manage Tickets dashboard.",
   },
 ];

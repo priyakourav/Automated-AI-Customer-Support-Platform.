@@ -193,14 +193,14 @@ export default function Dashboard() {
     onClick={() => {
       window.location.href = "/chat";
     }}
-    className="rounded-lg bg-cyan-500 px-5 py-2 font-semibold transition hover:bg-cyan-400"
+  className="rounded-xl border border-sky-500/30 bg-sky-500/15 px-4 py-2 text-sm font-semibold text-sky-300 transition hover:bg-sky-500/25 hover:text-sky-200"
   >
-    🤖 AI Support
+     AI Support
   </button>
 
   <button
     onClick={handleLogout}
-    className="rounded-lg bg-red-500 px-5 py-2 font-semibold transition hover:bg-red-400"
+    className="rounded-xl px-4 py-2 text-sm font-medium text-slate-400 transition hover:bg-red-500/10 hover:text-red-400"
   >
     Logout
   </button>

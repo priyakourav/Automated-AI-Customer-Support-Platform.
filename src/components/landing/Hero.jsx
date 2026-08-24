@@ -1,3 +1,4 @@
+import Link from "next/link";
 import DashboardPreview from "./DashboardPreview";
 
 export default function Hero() {
@@ -27,47 +28,54 @@ export default function Hero() {
           </h1>
 
           <p className="mt-8 max-w-2xl text-lg leading-8 text-slate-400 md:text-xl">
-            Automate customer conversations with intelligent voice and text
-            support. Resolve queries instantly, reduce response time, and
-            deliver a seamless support experience powered by AI.
+            Automate customer conversations with intelligent text and voice
+            support. Triage understands customer issues, provides instant
+            assistance, and escalates unresolved problems into support tickets
+            when human help is needed.
           </p>
 
           {/* Buttons */}
           <div className="mt-10 flex flex-col gap-4 sm:flex-row">
-            <button className="group rounded-xl bg-cyan-500 px-7 py-3 font-semibold text-white shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:-translate-y-1 hover:bg-cyan-400 hover:shadow-[0_0_40px_rgba(34,211,238,0.5)]">
+            <Link
+              href="/chat"
+              className="group rounded-xl bg-cyan-500 px-7 py-3 font-semibold text-white shadow-lg shadow-cyan-500/30 transition-all duration-300 hover:-translate-y-1 hover:bg-cyan-400 hover:shadow-[0_0_40px_rgba(34,211,238,0.5)]"
+            >
               <span className="flex items-center gap-2">
-                Get Started
+                Try Triage AI
                 <span className="transition-transform duration-300 group-hover:translate-x-1">
                   →
                 </span>
               </span>
-            </button>
-
-            <button className="group rounded-xl border border-slate-700 bg-slate-900/60 px-7 py-3 font-semibold text-slate-200 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:border-cyan-500 hover:bg-slate-800">
-              <span className="flex items-center gap-2">
-                Live Demo
-                <span className="transition-transform duration-300 group-hover:translate-x-1">
-                  ▶
-                </span>
-              </span>
-            </button>
+            </Link>
           </div>
 
           {/* Stats */}
           <div className="mt-12 grid max-w-xl grid-cols-3 gap-4">
             <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-cyan-500/50 hover:shadow-[0_0_35px_rgba(6,182,212,0.25)]">
-              <h3 className="text-3xl font-bold text-cyan-400">500+</h3>
-              <p className="mt-1 text-sm text-slate-400">Businesses</p>
+              <h3 className="text-3xl font-bold text-cyan-400">
+                Text & Voice
+              </h3>
+              <p className="mt-1 text-sm text-slate-400">
+                Support Modes
+              </p>
             </div>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-cyan-500/50 hover:shadow-[0_0_35px_rgba(6,182,212,0.25)]">
-              <h3 className="text-3xl font-bold text-cyan-400">98%</h3>
-              <p className="mt-1 text-sm text-slate-400">Resolution</p>
+              <h3 className="text-3xl font-bold text-cyan-400">
+                AI Powered
+              </h3>
+              <p className="mt-1 text-sm text-slate-400">
+                Smart Responses
+              </p>
             </div>
 
             <div className="rounded-2xl border border-slate-800 bg-slate-900/60 p-5 backdrop-blur-md transition-all duration-300 hover:-translate-y-2 hover:border-cyan-500/50 hover:shadow-[0_0_35px_rgba(6,182,212,0.25)]">
-              <h3 className="text-3xl font-bold text-cyan-400">24/7</h3>
-              <p className="mt-1 text-sm text-slate-400">AI Support</p>
+              <h3 className="text-3xl font-bold text-cyan-400">
+                24/7
+              </h3>
+              <p className="mt-1 text-sm text-slate-400">
+                AI Support
+              </p>
             </div>
           </div>
         </div>

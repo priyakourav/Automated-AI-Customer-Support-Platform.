@@ -38,7 +38,7 @@ export default function DashboardPreview() {
           </p>
 
           <p className="mt-2 text-slate-200">
-            I can't track my shipment.
+            My notifications aren't working.
           </p>
         </motion.div>
 
@@ -49,11 +49,12 @@ export default function DashboardPreview() {
           className="rounded-2xl border border-cyan-500/20 bg-cyan-500/15 p-4"
         >
           <p className="text-xs text-cyan-300">
-            🤖 AI Assistant
+            🤖 Triage AI
           </p>
 
           <p className="mt-2 text-cyan-100">
-            Your package has been shipped and will arrive tomorrow before 6 PM.
+            Let's troubleshoot that together. I'll guide you through a few
+            steps to identify the issue.
           </p>
         </motion.div>
       </div>
@@ -98,31 +99,31 @@ export default function DashboardPreview() {
       >
         <div className="rounded-2xl bg-slate-800/60 p-4 text-center transition hover:scale-105">
           <h3 className="text-2xl font-bold text-cyan-400">
-            98%
+            Text + Voice
           </h3>
 
           <p className="mt-1 text-xs text-slate-400">
-            Resolution
+            Support
           </p>
         </div>
 
         <div className="rounded-2xl bg-slate-800/60 p-4 text-center transition hover:scale-105">
           <h3 className="text-2xl font-bold text-cyan-400">
-            1.2s
+            AI Triage
           </h3>
 
           <p className="mt-1 text-xs text-slate-400">
-            Response
+            Smart
           </p>
         </div>
 
         <div className="rounded-2xl bg-slate-800/60 p-4 text-center transition hover:scale-105">
           <h3 className="text-2xl font-bold text-cyan-400">
-            4.9★
+            24/7
           </h3>
 
           <p className="mt-1 text-xs text-slate-400">
-            Rating
+            Available
           </p>
         </div>
       </motion.div>

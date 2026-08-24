@@ -2,7 +2,10 @@ import { workflow } from "@/data/workflow";
 
 export default function HowItWorks() {
   return (
-    <section className="bg-[#0B0F19] px-6 py-24">
+    <section
+  id="how-it-works"
+  className="bg-[#0B0F19] px-6 py-24"
+>
       <div className="mx-auto max-w-7xl">
 
         {/* Heading */}
