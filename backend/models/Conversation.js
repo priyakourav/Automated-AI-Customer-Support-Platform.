@@ -33,6 +33,12 @@ const conversationSchema = new mongoose.Schema(
       type: [messageSchema],
       default: [],
     },
+
+    // Whether the current support conversation has been resolved
+    resolved: {
+      type: Boolean,
+      default: false,
+    },
   },
   {
     timestamps: true,
