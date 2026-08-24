@@ -1,113 +1,247 @@
-# Triage: Automated "Voice & Text" AI Customer Support Platform
+# Triage — AI Customer Support Platform
 
 <div align="center">
 
-# 🤖 Triage — AI Customer Support Platform
+**AI-powered voice and text customer support with intelligent ticket escalation.**
 
-### Voice & Text AI agent that resolves customer issues and auto-escalates to human support tickets when needed.
+Automate customer conversations, resolve issues through conversational AI, and seamlessly escalate unresolved cases to support tickets.
 
-[![Next.js](https://img.shields.io/badge/Next.js-16-black?logo=next.js)](https://nextjs.org/)
-[![React](https://img.shields.io/badge/React-19-61DAFB?logo=react&logoColor=black)](https://react.dev/)
-[![Node.js](https://img.shields.io/badge/Node.js-Express%205-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
-[![MongoDB](https://img.shields.io/badge/MongoDB-Mongoose-47A248?logo=mongodb&logoColor=white)](https://www.mongodb.com/)
-[![Gemini](https://img.shields.io/badge/AI-Gemini%20API-4285F4?logo=googlegemini&logoColor=white)](https://ai.google.dev/)
-[![TailwindCSS](https://img.shields.io/badge/Tailwind-v4-06B6D4?logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
-[![License](https://img.shields.io/badge/License-ISC-lightgrey)](#-license)
+<br />
+
+[Live Demo](#) · [Features](#features) · [Tech Stack](#tech-stack) · [Setup](#installation--setup)
 
 </div>
 
 ---
 
-## 📖 About
+## Overview
 
-**Triage** is a full-stack AI customer support platform that lets customers chat (or talk) with an AI agent that troubleshoots their issue conversationally — one step at a time, like a real support agent — instead of dumping a wall of instructions. When the AI decides an issue genuinely needs a human, it automatically drafts a ticket title and summary and offers to escalate it, so nothing gets lost in translation.
+**Triage** is a full-stack AI customer support platform designed to automate the first level of customer support through **text and voice conversations**.
 
-Built as a personal full-stack + AI/ML project to demonstrate real-world LLM integration, authentication, and conversational UX design.
+Instead of relying on a rigid FAQ-style chatbot, Triage uses an AI agent to understand a customer's issue, ask relevant follow-up questions, provide troubleshooting steps, and determine when human intervention is required.
 
----
+When an issue cannot be resolved automatically, Triage can create a **support ticket with an AI-generated title and summary**, allowing the support team to take over without losing the conversation context.
 
-## ✨ Features
-
-| | |
-|---|---|
-| 💬 **AI Chat Support** | Natural, human-like conversations powered by the Gemini API — not a rigid FAQ bot |
-| 🎙️ **Voice Assistant** | Talk to Triage using speech recognition, with spoken AI replies via on-device TTS (Kokoro) |
-| 🕑 **24/7 Availability** | No queues, no downtime — instant responses at any hour |
-| 🔐 **Secure Auth** | JWT-based authentication with bcrypt password hashing |
-| 🎫 **Smart Ticket Escalation** | AI auto-generates a ticket title & summary and hands off to a human only when truly needed |
-| 🧠 **Conversation Memory** | Remembers context within a session and clears it once an issue is resolved |
-| 📊 **Dashboard** | Central place to view support activity |
+The project was built as a solo full-stack project to explore **AI integration, authentication, conversational interfaces, voice interaction, database design, and support workflow automation**.
 
 ---
 
-## 🛠️ Tech Stack
+## Features
 
-**Frontend**
-- [Next.js 16](https://nextjs.org/) (App Router) + [React 19](https://react.dev/)
-- [Tailwind CSS v4](https://tailwindcss.com/)
-- [Framer Motion](https://www.framer.com/motion/) for animation
-- [React Icons](https://react-icons.github.io/react-icons/) / [Lucide React](https://lucide.dev/)
-- [react-speech-recognition](https://www.npmjs.com/package/react-speech-recognition) for voice input
-- [kokoro-js](https://www.npmjs.com/package/kokoro-js) for in-browser text-to-speech
+### AI Customer Support
 
-**Backend**
-- [Node.js](https://nodejs.org/) + [Express 5](https://expressjs.com/)
-- [MongoDB](https://www.mongodb.com/) + [Mongoose](https://mongoosejs.com/)
-- [Google Gemini API](https://ai.google.dev/) (`@google/genai`) for the AI agent
-- [JWT](https://jwt.io/) + [bcrypt](https://www.npmjs.com/package/bcrypt) for auth
+* Conversational AI powered by the Google Gemini API
+* Handles customer queries through natural-language conversations
+* Asks follow-up questions to better understand the issue
+* Provides step-by-step troubleshooting instead of generic responses
+
+### Voice Support
+
+* Voice input using browser speech recognition
+* AI-generated responses can be converted to speech using Kokoro TTS
+* Voice functionality can be enabled when needed without affecting the normal text-chat experience
+
+### Smart Ticket Escalation
+
+When the AI determines that an issue requires human assistance:
+
+* Generates a relevant ticket title
+* Creates a concise issue summary
+* Allows the customer to raise a support ticket
+* Stores the ticket for later tracking
+
+### Authentication
+
+* User registration and login
+* JWT-based authentication
+* Password hashing with bcrypt
+* Protected backend routes
+* Authenticated access to chat and ticket functionality
+
+### Conversation Handling
+
+* Maintains conversation context during support interactions
+* Stores conversation history
+* Allows the AI to respond based on previous messages
+* Separates support conversations between authenticated users
+
+### Ticket Management
+
+* Create support tickets
+* View submitted tickets
+* Update ticket information
+* Delete tickets
+* Track support issues from the dashboard
+
+### Dashboard
+
+A centralized dashboard for users to:
+
+* View submitted support tickets
+* Monitor ticket status
+* Access AI support
+* Manage ongoing support interactions
 
 ---
 
-## 📂 Project Structure
+## Tech Stack
 
+### Frontend
+
+* **Next.js 16** — App Router
+* **React 19**
+* **Tailwind CSS v4**
+* **Framer Motion** — UI animations
+* **React Icons / Lucide React** — interface icons
+* **react-speech-recognition** — voice input
+* **Kokoro.js** — text-to-speech
+
+### Backend
+
+* **Node.js**
+* **Express 5**
+* **MongoDB**
+* **Mongoose**
+* **Google Gemini API**
+* **JWT**
+* **bcrypt**
+
+### Development & Deployment
+
+* **Git & GitHub**
+* **VS Code**
+* **Vercel** — frontend deployment
+* **Render / Railway** — backend deployment
+* **MongoDB Atlas** — cloud database
+
+---
+
+## Architecture
+
+```text
+                         ┌──────────────────────┐
+                         │      Customer        │
+                         └──────────┬───────────┘
+                                    │
+                           Voice / Text Input
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │    Next.js Frontend  │
+                         │  React + Tailwind UI  │
+                         └──────────┬───────────┘
+                                    │
+                                    ▼
+                         ┌──────────────────────┐
+                         │   Express Backend    │
+                         │      REST APIs       │
+                         └───────┬───────┬──────┘
+                                 │       │
+                    ┌────────────┘       └─────────────┐
+                    ▼                                  ▼
+          ┌──────────────────┐               ┌──────────────────┐
+          │   Gemini API     │               │ MongoDB / Atlas  │
+          │   AI Support     │               │ Users / Tickets  │
+          └────────┬─────────┘               │ Conversations    │
+                   │                         └──────────────────┘
+                   ▼
+          AI Response / Escalation
+                   │
+          ┌────────┴─────────┐
+          ▼                  ▼
+     Customer Reply     Support Ticket
+```
+
+---
+
+## Project Structure
+
+```text
 Automated-AI-Customer-Support-Platform/
+│
 ├── src/
-│ ├── app/ # Next.js App Router pages
-│ │ ├── page.js # Landing page
-│ │ ├── login/ # Login page
-│ │ ├── register/ # Register page
-│ │ ├── chat/ # AI chat (text + voice) interface
-│ │ └── dashboard/ # User dashboard
-│ ├── components/
-│ │ ├── landing/ # Hero, Features, HowItWorks, FAQ, CTA, Footer
-│ │ ├── layout/ # Navbar
-│ │ └── common/ # Logo, shared UI
-│ ├── data/ # Static content (features, FAQ, workflow)
-│ ├── lib/kokoro.js # Kokoro TTS integration
-│ └── constants/theme.js
+│   ├── app/
+│   │   ├── page.js              # Landing page
+│   │   ├── login/               # Login page
+│   │   ├── register/            # Registration page
+│   │   ├── chat/                # AI chat interface
+│   │   └── dashboard/           # User dashboard
+│   │
+│   ├── components/
+│   │   ├── landing/             # Landing page sections
+│   │   ├── layout/              # Navbar and layout components
+│   │   └── common/              # Shared components
+│   │
+│   ├── data/                    # Static application data
+│   ├── lib/                     # Client-side utilities
+│   └── constants/               # Application constants
 │
 ├── backend/
-│ ├── controllers/ # auth, chat (Gemini AI logic), ticket
-│ ├── models/ # User, Conversation, Ticket (Mongoose schemas)
-│ ├── routes/ # /api/auth, /api/chat, /api/tickets
-│ ├── middleware/authMiddleware.js
-│ └── server.js # Express app entry point
+│   ├── controllers/             # Authentication, chat and ticket logic
+│   ├── models/                  # Mongoose schemas
+│   ├── routes/                  # REST API routes
+│   ├── middleware/              # Authentication middleware
+│   └── server.js                # Express server entry point
 │
-└── public/ # Static assets
-
+├── public/                      # Static assets
+├── package.json
+├── next.config.mjs
+├── jsconfig.json
+└── README.md
+```
 
 ---
 
-## ⚙️ Installation & Setup
+## API Endpoints
+
+| Method | Endpoint                  | Description                      | Authentication |
+| ------ | ------------------------- | -------------------------------- | -------------- |
+| POST   | `/api/auth/register`      | Register a new user              | No             |
+| POST   | `/api/auth/login`         | Authenticate user and return JWT | No             |
+| GET    | `/api/auth/profile`       | Get authenticated user profile   | Yes            |
+| POST   | `/api/chat`               | Send a message to the AI agent   | Yes            |
+| GET    | `/api/chat/history`       | Retrieve conversation history    | Yes            |
+| POST   | `/api/tickets/create`     | Create a support ticket          | Yes            |
+| GET    | `/api/tickets/my-tickets` | Retrieve user's tickets          | Yes            |
+| PUT    | `/api/tickets/:id`        | Update a ticket                  | Yes            |
+| DELETE | `/api/tickets/:id`        | Delete a ticket                  | Yes            |
+
+---
+
+## Installation & Setup
 
 ### Prerequisites
-- [Node.js](https://nodejs.org/) v18+
-- [MongoDB](https://www.mongodb.com/) (local or Atlas)
-- A [Google Gemini API key](https://ai.google.dev/)
+
+Make sure you have:
+
+* Node.js 18+
+* MongoDB or MongoDB Atlas
+* Google Gemini API key
+* Git
 
 ### 1. Clone the repository
+
 ```bash
-git clone https://github.com/<priyakourav>/Automated-AI-Customer-Support-Platform.git
+git clone https://github.com/priyakourav/Automated-AI-Customer-Support-Platform.git
+
 cd Automated-AI-Customer-Support-Platform
 ```
 
-### 2. Set up the backend
+### 2. Install frontend dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure the backend
+
 ```bash
 cd backend
 npm install
 ```
 
-Create a `.env` file inside `backend/`:
+Create a `.env` file inside the `backend` directory:
+
 ```env
 PORT=5000
 MONGO_URI=your_mongodb_connection_string
@@ -115,81 +249,173 @@ JWT_SECRET=your_jwt_secret
 GEMINI_API_KEY=your_gemini_api_key
 ```
 
-Run the backend:
+### 4. Start the backend
+
 ```bash
 npm run dev
 ```
-Server will start on `http://localhost:5000`.
 
-### 3. Set up the frontend
+The backend will run on:
+
+```text
+http://localhost:5000
+```
+
+### 5. Start the frontend
+
+Open another terminal:
+
 ```bash
-cd ..            # back to project root
-npm install
+cd ..
 npm run dev
 ```
-App will be available at `http://localhost:3000`.
+
+The frontend will run on:
+
+```text
+http://localhost:3000
+```
+
+> Never commit your `.env` file or real API keys to GitHub.
 
 ---
 
-## 🚀 Usage
+## How It Works
 
-1. **Register / Login** to create your account.
-2. Go to the **Chat** page and start describing your issue — via text or the mic 🎙️.
-3. Triage will ask clarifying questions and walk you through troubleshooting one step at a time.
-4. If the issue can't be resolved automatically, Triage will offer to **raise a support ticket** with an AI-generated title and summary.
-5. Track your submitted issues from the **Dashboard**.
+```text
+Customer
+   │
+   ▼
+Voice / Text Query
+   │
+   ▼
+AI Support Agent
+   │
+   ├── Understands the issue
+   │
+   ├── Asks follow-up questions
+   │
+   ├── Provides troubleshooting
+   │
+   ▼
+Issue Resolved?
+   │
+   ├── Yes ──► Conversation completed
+   │
+   └── No
+         │
+         ▼
+   AI-generated Ticket
+         │
+         ▼
+   Support Dashboard
+```
 
----
-
-## 🧩 API Overview
-
-| Method | Endpoint | Description | Auth |
-|---|---|---|---|
-| `POST` | `/api/auth/register` | Register a new user | ❌ |
-| `POST` | `/api/auth/login` | Login & receive JWT | ❌ |
-| `GET`  | `/api/auth/profile` | Get logged-in user profile | ✅ |
-| `POST` | `/api/chat` | Send a message to the AI agent | ✅ |
-| `GET`  | `/api/chat/history` | Get conversation history | ✅ |
-| `POST` | `/api/tickets/create` | Create a support ticket | ✅ |
-| `GET`  | `/api/tickets/my-tickets` | Get user's tickets | ✅ |
-| `PUT`  | `/api/tickets/:id` | Update a ticket | ✅ |
-| `DELETE` | `/api/tickets/:id` | Delete a ticket | ✅ |
-
----
-
-## 🗺️ Roadmap
-
-- [ ] Admin/agent dashboard for managing incoming tickets
-- [ ] Real-time chat with WebSockets
-- [ ] Multi-language support
-- [ ] Analytics on resolution rate & response time
-
----
-
-## 🤝 Contributing
-
-Contributions, issues and feature requests are welcome!
-1. Fork the project
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+The goal is to automate routine support interactions while providing a clear path to human assistance when automation is not enough.
 
 ---
 
-## 📄 License
+## Authentication Flow
 
-Distributed under the **ISC License**.
+```text
+Register
+   │
+   ▼
+Password hashed with bcrypt
+   │
+   ▼
+User stored in MongoDB
+   │
+   ▼
+Login
+   │
+   ▼
+JWT generated
+   │
+   ▼
+Protected API requests
+```
 
 ---
 
-## 👤 Author
+## Security
+
+The project includes several security-focused mechanisms:
+
+* Password hashing using bcrypt
+* JWT-based authentication
+* Protected backend routes
+* User-specific ticket access
+* Environment variables for sensitive credentials
+* MongoDB-based persistent data storage
+
+API keys and database credentials are intentionally excluded from the repository through `.gitignore`.
+
+---
+
+## Current Status
+
+Triage currently includes:
+
+* AI text support
+* Voice input
+* AI voice output
+* User authentication
+* Conversation handling
+* Ticket creation
+* Ticket management
+* User dashboard
+* Responsive landing page
+* Gemini API integration
+* MongoDB persistence
+
+---
+
+## Future Improvements
+
+Potential future enhancements include:
+
+* Admin/support-agent dashboard
+* Real-time agent-to-customer chat
+* Advanced ticket assignment
+* Multi-language voice support
+* Support analytics and reporting
+* Knowledge-base integration
+* Email notifications for ticket updates
+* WebSocket-based real-time updates
+
+---
+
+## Why I Built This
+
+Triage was built to explore how modern AI can be integrated into a practical customer-support workflow rather than using an LLM as a standalone chatbot.
+
+The project combines:
+
+**AI + Full-Stack Development + Authentication + Databases + Voice Interaction + Workflow Automation**
+
+It demonstrates the complete flow from a customer's initial request to AI-assisted resolution and human escalation.
+
+---
+
+## Author
 
 **Priya Kourav**
-B.Tech CSE (AI & ML) — Sagar Institute of Research And Technology, Bhopal
+
+B.Tech — Computer Science & Engineering
+Artificial Intelligence & Machine Learning
+Sagar Institute of Research and Technology, Bhopal
+
+---
+
+## License
+
+This project is licensed under the **ISC License**.
+
+---
 
 <div align="center">
 
-⭐️ If you found this project interesting, consider giving it a star!
+**Triage — AI-powered support that helps businesses respond faster.**
 
 </div>
