@@ -61,12 +61,6 @@ The project combines **AI integration, full-stack development, authentication, d
   <img src="public/screenshots/Screenshot%20%28588%29.png" width="900" alt="Triage Landing Page" />
 </p>
 
-### Call To Action
-
-<p align="center">
-  <img src="public/screenshots/Screenshot%20%28589%29.png" width="900" alt="Triage CTA Section" />
-</p>
-
 ### How It Works
 
 <p align="center">
