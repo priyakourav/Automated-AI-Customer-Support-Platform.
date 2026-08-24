@@ -63,8 +63,10 @@ The project combines **AI integration, full-stack development, authentication, d
 
 ### How It Works
 
+### How It Works
+
 <p align="center">
-  <img src="public/screenshots/Screenshot%20%28590%29.png" width="900" alt="Triage How It Works Section" />
+  <img src="public/screenshots/Screenshot%20%28589%29.png" width="900" alt="Triage How It Works Section" />
 </p>
 
 ### FAQ
