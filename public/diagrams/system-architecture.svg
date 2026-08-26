@@ -1,0 +1,81 @@
+<svg viewBox="0 0 700 660" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrowSA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94A3B8"/>
+    </marker>
+    <filter id="shadowSA" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+    <linearGradient id="gCustomer" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#475569"/>
+      <stop offset="100%" stop-color="#1E293B"/>
+    </linearGradient>
+    <linearGradient id="gFrontend" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0F172A"/>
+      <stop offset="100%" stop-color="#020617"/>
+    </linearGradient>
+    <linearGradient id="gBackend" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#8B5CF6"/>
+      <stop offset="100%" stop-color="#6D28D9"/>
+    </linearGradient>
+    <linearGradient id="gGemini" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#60A5FA"/>
+      <stop offset="100%" stop-color="#2563EB"/>
+    </linearGradient>
+    <linearGradient id="gMongo" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#34D399"/>
+      <stop offset="100%" stop-color="#059669"/>
+    </linearGradient>
+    <linearGradient id="gResponse" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#D97706"/>
+    </linearGradient>
+    <linearGradient id="gDashboard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#22D3EE"/>
+      <stop offset="100%" stop-color="#0891B2"/>
+    </linearGradient>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="660" fill="#F8FAFC"/>
+  <text x="350" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#0F172A">System Architecture</text>
+
+  <rect x="200" y="55" width="300" height="64" rx="14" fill="url(#gCustomer)" filter="url(#shadowSA)"/>
+  <text x="350" y="80" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">Customer</text>
+  <text x="350" y="100" text-anchor="middle" font-size="11.5" fill="#CBD5E1">Voice / Text Query</text>
+
+  <line x1="350" y1="119" x2="350" y2="152" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrowSA)"/>
+
+  <rect x="160" y="152" width="380" height="64" rx="14" fill="url(#gFrontend)" stroke="#06B6D4" stroke-width="1.5" filter="url(#shadowSA)"/>
+  <text x="350" y="177" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">Next.js Frontend</text>
+  <text x="350" y="197" text-anchor="middle" font-size="11.5" fill="#94A3B8">React + Tailwind CSS</text>
+
+  <line x1="350" y1="216" x2="350" y2="249" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrowSA)"/>
+
+  <rect x="160" y="249" width="380" height="64" rx="14" fill="url(#gBackend)" filter="url(#shadowSA)"/>
+  <text x="350" y="274" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">Express Backend</text>
+  <text x="350" y="294" text-anchor="middle" font-size="11.5" fill="#EDE9FE">REST APIs</text>
+
+  <path d="M 350 313 L 350 330 L 190 330 L 190 355" fill="none" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrowSA)"/>
+  <path d="M 350 313 L 350 330 L 510 330 L 510 355" fill="none" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrowSA)"/>
+
+  <rect x="60" y="355" width="260" height="64" rx="14" fill="url(#gGemini)" filter="url(#shadowSA)"/>
+  <text x="190" y="380" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Gemini AI Agent</text>
+  <text x="190" y="399" text-anchor="middle" font-size="11" fill="#DBEAFE">Conversation Intelligence</text>
+
+  <rect x="380" y="355" width="260" height="64" rx="14" fill="url(#gMongo)" filter="url(#shadowSA)"/>
+  <text x="510" y="380" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">MongoDB</text>
+  <text x="510" y="399" text-anchor="middle" font-size="11" fill="#D1FAE5">Users · Chats · Tickets</text>
+
+  <path d="M 190 419 L 190 440 L 350 440 L 350 457" fill="none" stroke="#94A3B8" stroke-width="2"/>
+  <path d="M 510 419 L 510 440 L 350 440 L 350 457" fill="none" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrowSA)"/>
+
+  <rect x="140" y="457" width="420" height="64" rx="14" fill="url(#gResponse)" filter="url(#shadowSA)"/>
+  <text x="350" y="482" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">AI Response or Escalation</text>
+  <text x="350" y="502" text-anchor="middle" font-size="11.5" fill="#FEF3C7">Resolved instantly or routed to a ticket</text>
+
+  <line x1="350" y1="521" x2="350" y2="554" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrowSA)"/>
+
+  <rect x="140" y="554" width="420" height="64" rx="14" fill="url(#gDashboard)" filter="url(#shadowSA)"/>
+  <text x="350" y="579" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">Support Ticket Dashboard</text>
+  <text x="350" y="599" text-anchor="middle" font-size="11.5" fill="#CFFAFE">Track and manage submitted issues</text>
+</svg>

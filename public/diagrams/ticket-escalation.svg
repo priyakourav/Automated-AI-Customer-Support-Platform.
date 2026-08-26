@@ -1,0 +1,61 @@
+<svg viewBox="0 0 700 730" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', Helvetica, Arial, sans-serif">
+  <defs>
+    <marker id="arrowTE" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0,0 L10,5 L0,10 z" fill="#94A3B8"/>
+    </marker>
+    <filter id="shadowTE" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000000" flood-opacity="0.18"/>
+    </filter>
+  </defs>
+
+  <rect x="0" y="0" width="700" height="730" fill="#F8FAFC"/>
+  <text x="350" y="34" text-anchor="middle" font-size="22" font-weight="700" fill="#0F172A">Ticket Escalation</text>
+
+  <!-- Customer Issue -->
+  <rect x="220" y="55" width="260" height="60" rx="12" fill="#334155" filter="url(#shadowTE)"/>
+  <text x="350" y="90" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">Customer Issue</text>
+
+  <line x1="350" y1="115" x2="350" y2="148" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrowTE)"/>
+
+  <!-- AI Troubleshooting -->
+  <rect x="220" y="148" width="260" height="60" rx="12" fill="#8B5CF6" filter="url(#shadowTE)"/>
+  <text x="350" y="183" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">AI Troubleshooting</text>
+
+  <line x1="350" y1="208" x2="350" y2="240" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrowTE)"/>
+
+  <!-- Diamond -->
+  <polygon points="350,245 455,300 350,355 245,300" fill="#4285F4" filter="url(#shadowTE)"/>
+  <text x="350" y="305" text-anchor="middle" font-size="14.5" font-weight="700" fill="#FFFFFF">Resolved?</text>
+
+  <!-- YES branch to Done -->
+  <line x1="455" y1="300" x2="555" y2="300" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrowTE)"/>
+  <text x="503" y="290" text-anchor="middle" font-size="11.5" font-weight="700" fill="#059669">YES</text>
+  <rect x="560" y="270" width="120" height="60" rx="12" fill="#10B981" filter="url(#shadowTE)"/>
+  <text x="620" y="298" text-anchor="middle" font-size="14" font-weight="700" fill="#FFFFFF">Done</text>
+  <text x="620" y="315" text-anchor="middle" font-size="16" fill="#FFFFFF">✓</text>
+
+  <!-- NO branch down -->
+  <line x1="350" y1="355" x2="350" y2="392" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrowTE)"/>
+  <text x="368" y="378" font-size="11.5" font-weight="700" fill="#D97706">NO</text>
+
+  <!-- Generate Ticket -->
+  <rect x="220" y="392" width="260" height="60" rx="12" fill="#F59E0B" filter="url(#shadowTE)"/>
+  <text x="350" y="427" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">Generate Ticket</text>
+
+  <line x1="350" y1="452" x2="350" y2="484" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrowTE)"/>
+
+  <!-- Details dashed box -->
+  <rect x="170" y="484" width="360" height="118" rx="12" fill="#FFFFFF" stroke="#CBD5E1" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <rect x="195" y="500" width="310" height="28" rx="14" fill="#FEF3C7"/>
+  <text x="350" y="519" text-anchor="middle" font-size="12.5" font-weight="600" fill="#92400E">Ticket Title</text>
+  <rect x="195" y="536" width="310" height="28" rx="14" fill="#FEF3C7"/>
+  <text x="350" y="555" text-anchor="middle" font-size="12.5" font-weight="600" fill="#92400E">Issue Summary</text>
+  <rect x="195" y="572" width="310" height="28" rx="14" fill="#FEF3C7"/>
+  <text x="350" y="591" text-anchor="middle" font-size="12.5" font-weight="600" fill="#92400E">User Information</text>
+
+  <line x1="350" y1="602" x2="350" y2="634" stroke="#94A3B8" stroke-width="2" marker-end="url(#arrowTE)"/>
+
+  <!-- My Tickets -->
+  <rect x="200" y="634" width="300" height="60" rx="12" fill="#0891B2" filter="url(#shadowTE)"/>
+  <text x="350" y="669" text-anchor="middle" font-size="15" font-weight="700" fill="#FFFFFF">My Tickets</text>
+</svg>

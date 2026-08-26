@@ -133,39 +133,7 @@ When AI assistance is not enough, customers can escalate their issue into a supp
 
 <div align="center">
 
-### 01 — Customer Query
-
-**Voice or Text**
-
-↓
-
-### 02 — AI Understanding
-
-**Gemini analyzes the conversation and determines the customer's intent**
-
-↓
-
-### 03 — AI Assistance
-
-**Triage provides relevant troubleshooting and guidance**
-
-↓
-
-### 04 — Resolution Check
-
-**If the issue is resolved, the conversation is completed**
-
-↓
-
-### 05 — Human Escalation
-
-**If the issue requires human support, a ticket can be created**
-
-↓
-
-### 06 — Ticket Management
-
-**The customer can track the issue from the dashboard**
+<img src="public/diagrams/ai-workflow.svg" width="800" alt="How Triage Works — AI Support Workflow" />
 
 </div>
 
@@ -175,48 +143,9 @@ When AI assistance is not enough, customers can escalate their issue into a supp
 
 <div align="center">
 
-```text
-┌───────────────────────┐
-│       Customer        │
-│                       │
-│   Voice / Text Query  │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│    Next.js Frontend   │
-│   React + Tailwind    │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│    Express Backend    │
-│      REST APIs        │
-└───────┬───────┬───────┘
-        │       │
-        ▼       ▼
-┌───────────┐ ┌───────────────┐
-│ Gemini AI │ │    MongoDB    │
-│           │ │               │
-│ AI Agent  │ │ Users / Chat  │
-│           │ │ Tickets       │
-└─────┬─────┘ └───────────────┘
-      │
-      ▼
-┌───────────────────────┐
-│   AI Response         │
-│   or Escalation       │
-└───────────┬───────────┘
-            │
-            ▼
-┌───────────────────────┐
-│    Support Ticket     │
-│      Dashboard        │
-└───────────────────────┘
-```
+<img src="public/diagrams/system-architecture.svg" width="700" alt="Triage System Architecture" />
 
 </div>
-
 ---
 
 # Voice Support
@@ -276,32 +205,11 @@ AI responses can be converted into speech using **Kokoro.js**, providing a more 
 
 # Ticket Escalation
 
-Triage is designed to keep human intervention focused on cases that actually require it.
+<div align="center">
 
-```text
-Customer Issue
-      │
-      ▼
-AI Troubleshooting
-      │
-      ▼
-Resolved?
-   ┌──┴──┐
-  YES    NO
-   │      │
-   ▼      ▼
-Done   Generate Ticket
-          │
-          ├── Ticket Title
-          │
-          ├── Issue Summary
-          │
-          └── User Information
-                  │
-                  ▼
-             My Tickets
-```
+<img src="public/diagrams/ticket-escalation.svg" width="700" alt="Triage Ticket Escalation Flow" />
 
+</div>
 ---
 
 # Tech Stack
