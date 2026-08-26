@@ -2,9 +2,11 @@
 
 import Link from "next/link";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 import { FiEye, FiEyeOff } from "react-icons/fi";
 
 export default function RegisterPage() {
+  const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -40,7 +42,10 @@ export default function RegisterPage() {
       const data = await response.json();
 
       alert(data.message);
-      console.log(data);
+
+if (response.ok) {
+  router.push("/login");
+}
     } catch (error) {
       console.error(error);
       alert("Something went wrong");
