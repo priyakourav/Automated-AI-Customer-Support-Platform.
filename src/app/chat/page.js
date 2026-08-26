@@ -47,7 +47,7 @@ export default function ChatPage() {
         }
 
         const response = await fetch(
-          "http://localhost:5000/api/chat/history",
+  `${process.env.NEXT_PUBLIC_API_URL}/api/chat/history`,
           {
             method: "GET",
             headers: {
@@ -241,7 +241,7 @@ export default function ChatPage() {
       ].join("\n");
 
       const response = await fetch(
-        "http://localhost:5000/api/tickets/create",
+  `${process.env.NEXT_PUBLIC_API_URL}/api/tickets/create`,
         {
           method: "POST",
           headers: {
@@ -346,7 +346,7 @@ export default function ChatPage() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/chat",
+  `${process.env.NEXT_PUBLIC_API_URL}/api/chat`,
         {
           method: "POST",
           headers: {

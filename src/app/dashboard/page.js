@@ -18,7 +18,7 @@ export default function Dashboard() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/tickets/my-tickets",
+        `${process.env.NEXT_PUBLIC_API_URL}/api/tickets/my-tickets`,
         {
           headers: {
             Authorization: token,
@@ -50,7 +50,7 @@ export default function Dashboard() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/tickets/create",
+       `${process.env.NEXT_PUBLIC_API_URL}/api/tickets/create`,
         {
           method: "POST",
           headers: {
@@ -90,7 +90,7 @@ export default function Dashboard() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:5000/api/tickets/${id}`,
+       `${process.env.NEXT_PUBLIC_API_URL}/api/tickets/${id}`,
         {
           method: "PUT",
           headers: {
@@ -132,7 +132,7 @@ export default function Dashboard() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:5000/api/tickets/${id}`,
+        `${process.env.NEXT_PUBLIC_API_URL}/api/tickets/${id}`,
         {
           method: "DELETE",
           headers: {

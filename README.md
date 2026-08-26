@@ -402,7 +402,7 @@ npm run dev
 Backend:
 
 ```text
-http://localhost:5000
+https://automated-ai-customer-support-platform.onrender.com
 ```
 
 ## Start Frontend
