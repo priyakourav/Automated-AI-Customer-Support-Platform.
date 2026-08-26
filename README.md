@@ -491,9 +491,7 @@ The goal was to build a practical, production-style application that demonstrate
 
 ### Priya Kourav
 
-B.Tech — Computer Science & Engineering
-Artificial Intelligence & Machine Learning
-Sagar Institute of Research and Technology, Bhopal
+B.Tech — Computer Science & Engineering (AI & ML)
 
 <br>
 
