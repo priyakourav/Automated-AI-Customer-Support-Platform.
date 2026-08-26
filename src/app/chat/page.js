@@ -3,10 +3,7 @@
 import { useState, useEffect, useRef } from "react";
 import { Mic, Bot, Send } from "lucide-react";
 
-import {
-  speakWithKokoro,
-  warmUpKokoro,
-} from "@/lib/kokoro";
+import { speakWithKokoro } from "@/lib/kokoro";
 
 export default function ChatPage() {
   const [message, setMessage] = useState("");
@@ -35,26 +32,24 @@ export default function ChatPage() {
   // --------------------------------------------------
 
   useEffect(() => {
-    warmUpKokoro();
+  const loadConversation = async () => {
+    try {
+      const token = localStorage.getItem("token");
 
-    const loadConversation = async () => {
-      try {
-        const token = localStorage.getItem("token");
+      if (!token) {
+        window.location.href = "/login";
+        return;
+      }
 
-        if (!token) {
-          window.location.href = "/login";
-          return;
+      const response = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/chat/history`,
+        {
+          method: "GET",
+          headers: {
+            Authorization: token,
+          },
         }
-
-        const response = await fetch(
-  `${process.env.NEXT_PUBLIC_API_URL}/api/chat/history`,
-          {
-            method: "GET",
-            headers: {
-              Authorization: token,
-            },
-          }
-        );
+      );
 
         const data = await response.json();
 
