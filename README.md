@@ -12,10 +12,6 @@ Triage is a full-stack AI customer support platform that helps businesses automa
 
 <br>
 
-<a href="https://github.com/priyakourav/Automated-AI-Customer-Support-Platform">
-  <img src="https://img.shields.io/badge/View%20Repository-181717?style=for-the-badge&logo=github&logoColor=white" />
-</a>
-
 </div>
 
 ---
