@@ -8,6 +8,10 @@
 
 ### Voice & Text AI Support with Intelligent Ticket Escalation
 
+### 🚀 Live Demo
+
+[**Try Triage Live →**](https://automated-ai-customer-support-platf.vercel.app/)
+
 Triage is a full-stack AI customer support platform that helps businesses automate customer conversations, resolve common issues instantly, and escalate unresolved cases to support tickets.
 
 <br>
