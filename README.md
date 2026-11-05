@@ -1,5 +1,4 @@
 # Triage — AI Customer Support Platform
-
 <div align="center">
 
 <img src="https://img.shields.io/badge/Triage-AI%20Customer%20Support-06B6D4?style=for-the-badge&logo=openai&logoColor=white" />
@@ -19,7 +18,6 @@ Triage is a full-stack AI customer support platform that helps businesses automa
 </div>
 
 ---
-
 ## Overview
 
 **Triage** is a full-stack AI-powered customer support platform built around conversational AI.
